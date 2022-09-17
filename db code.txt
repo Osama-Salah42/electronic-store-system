@@ -1,0 +1,25 @@
+create database electronic_store_db ;
+CREATE TABLE `usertb1` (
+	`Uid` INT NOT NULL AUTO_INCREMENT,
+	`Uname` VARCHAR(30) NOT NULL ,
+	`Upassword` VARCHAR(255) NOT NULL ,
+	`Uphone` VARCHAR(30) NOT NULL ,
+	PRIMARY KEY (`Uid`)
+)AUTO_INCREMENT=1;
+CREATE TABLE `itemstb1` (
+	`itid` INT NOT NULL AUTO_INCREMENT,
+	`itname` VARCHAR(30) NOT NULL ,
+	`itqty` INT(30) NOT NULL ,
+	`itprice` INT(30)NOT NULL ,
+	`itcat` VARCHAR(30) NOT NULL ,
+	`itphoto` LONGBLOB ,
+	PRIMARY KEY (`itid`)
+)AUTO_INCREMENT=1;
+CREATE TABLE `sellstb1` (
+	`Bid` INT AUTO_INCREMENT,
+	`Sid` INT NOT NULL,
+	`Sname` VARCHAR(30) NOT NULL,
+	`Bdata` VARCHAR(25) NOT NULL,
+	`Bamt` INT NOT NULL,
+	PRIMARY KEY (`Bid`)
+)AUTO_INCREMENT=1;
