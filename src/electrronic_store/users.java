@@ -3,6 +3,9 @@ package electrronic_store;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -297,6 +300,19 @@ public class users extends javax.swing.JFrame {
         userpasstb.setText("");
         userphone.setText("");
     }
+    public static String encodingsim(String pass ) throws NoSuchAlgorithmException{
+    MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = messageDigest.digest(pass.getBytes(StandardCharsets.UTF_8));
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(255 & hash[i]);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+    }
     private void usereditbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usereditbtActionPerformed
         if(usernametb.getText().isEmpty() || userpasstb.getText().isEmpty() || userphone.getText().isEmpty()||key==0)
         {
@@ -309,9 +325,8 @@ public class users extends javax.swing.JFrame {
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronic_store_db","root","Mahmod_012");
                 PreparedStatement ps=con.prepareStatement(updatequery);
                 ps.setString(1, usernametb.getText());
-                PasswordAuthentication hasher = new PasswordAuthentication();
-                String Hashed_pass = hasher.hash(userpasstb.getText());
-                ps.setString(2, Hashed_pass);
+                String pass = encodingsim(userpasstb.getText());
+                ps.setString(2, pass);
                 ps.setString(3, userphone.getText());
                 ps.setInt(4, key);
                 if(ps.executeUpdate()==1)
@@ -349,6 +364,7 @@ public class users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex);
         }
     }
+    
     private void useraddbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useraddbtActionPerformed
         if(usernametb.getText().isEmpty() || userpasstb.getText().isEmpty() || userphone.getText().isEmpty())
         {
@@ -362,9 +378,9 @@ public class users extends javax.swing.JFrame {
                 PreparedStatement Save = con.prepareStatement("insert into usertb1(Uname,Upassword,Uphone) Values(?,?,?)");
               //  Save.setInt(1,1);
                 Save.setString(1, usernametb.getText());
-                PasswordAuthentication hasher = new PasswordAuthentication();
-                String Hashed_pass = hasher.hash(userpasstb.getText());
-                Save.setString(2, Hashed_pass);
+                String pass = encodingsim(userpasstb.getText());
+                
+                Save.setString(2, pass);
                 Save.setString(3, userphone.getText());
                 int row = Save.executeUpdate();
                 JOptionPane.showMessageDialog(this, "User added successfully");

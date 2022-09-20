@@ -1,11 +1,16 @@
 
 package electrronic_store;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class log_in_form extends javax.swing.JFrame {
@@ -123,10 +128,12 @@ public class log_in_form extends javax.swing.JFrame {
                             .addComponent(passwordtb)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(rolecb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loginbt, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))))
+                        .addComponent(rolecb, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(172, 172, 172))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(loginbt, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(192, 192, 192))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +153,7 @@ public class log_in_form extends javax.swing.JFrame {
                     .addComponent(passwordtb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loginbt)
-                .addGap(14, 14, 14))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,6 +181,19 @@ public class log_in_form extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public static String encodingsim(String pass ) throws NoSuchAlgorithmException{
+    MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = messageDigest.digest(pass.getBytes(StandardCharsets.UTF_8));
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(255 & hash[i]);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+    }
     private void loginbtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtMouseClicked
         if(rolecb.getSelectedIndex()==-1)
         {
@@ -181,31 +201,53 @@ public class log_in_form extends javax.swing.JFrame {
         }
         else if(rolecb.getSelectedIndex()==0)
         {
-            if(usernametb.getText().isEmpty()||passwordtb.getText().isEmpty())
+            String pass="";
+            try {
+                pass=encodingsim(passwordtb.getText());
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(log_in_form.class.getName()).log(Level.SEVERE, null, ex);
+            }
+;
+           
+          
+            
+            if(usernametb.getText().isEmpty()||pass.isEmpty())
             {
                 JOptionPane.showMessageDialog(this, "Enter Username or Password");
-            }
-            else if(usernametb.getText().equals("Admin")&&passwordtb.getText().equals("Password"))
-            {
-                new items().setVisible(true);
-                this.dispose();
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Wronge Username or Password");
-                usernametb.setText("");
-                passwordtb.setText("");
+            }     
+            else try {
+                if(usernametb.getText().equals("Admin")&&pass.equals(encodingsim("Password")))
+                {
+                    new items().setVisible(true);
+                    this.dispose();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Wronge Username or Password");
+                    usernametb.setText("");
+                    passwordtb.setText("");
+                }
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(log_in_form.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else
         {
-            String query="Select Upassword from usertb1 where Uname ='"+usernametb.getText()+"'";
+            String pass="";
             try {
-                PasswordAuthentication hasher = new PasswordAuthentication();
+                pass=encodingsim(passwordtb.getText());
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(log_in_form.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                String query="SELECT * FROM  electronic_store_db.usertb1 WHERE Uname='"+usernametb.getText()+"' and Upassword='"+pass+"'";
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electronic_store_db","root","Mahmod_012");
-                st=con.createStatement();      
-                rs=st.executeQuery(query);
-                if(rs.next()&&hasher.authenticate(passwordtb.getText(), rs.getString(1)))
+                pst=con.prepareStatement(query); 
+//                pst.setString(1, usernametb.getText());
+//                pst.setString(2, pass);
+                rs=pst.executeQuery(query);
+                if(rs.next())
                 {
                     new selling().setVisible(true);
                     this.dispose();
