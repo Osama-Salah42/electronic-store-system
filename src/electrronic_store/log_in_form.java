@@ -42,11 +42,11 @@ public class log_in_form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("SimSun", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SimSun-ExtB", 1, 36)); // NOI18N
         jLabel2.setText("Electronic store");
 
         jButton2.setBackground(new java.awt.Color(204, 0, 0));
@@ -260,27 +260,6 @@ public class log_in_form extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,ex);
             }
         }
-//        ResultSet rs = Select.getData("select password,status from users where email='" + email + "'");
-//
-//            try {
-//                if (rs.next()) {
-//
-//
-//                    if ( hasher.authenticate(password, rs.getString(1)) ) {
-//                        check = 1;
-//                        if (rs.getString(2).equals("true")){
-//                        setVisible(false);
-//                        new home().setVisible(true);
-//                        }
-//                        else {
-//                        JOptionPane.showMessageDialog(this, "Wait for Admin Approval");
-//                    }
-//                    } 
-//
-//                }
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(this, e);
-//            }
     }//GEN-LAST:event_loginbtMouseClicked
 
     public static void main(String args[]) {

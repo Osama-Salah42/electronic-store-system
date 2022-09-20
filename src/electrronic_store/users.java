@@ -35,7 +35,6 @@ public class users extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         usernametb = new javax.swing.JTextField();
-        userpasstb = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
@@ -45,6 +44,7 @@ public class users extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         userphone = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        userpasstb = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         LOGOUT = new javax.swing.JLabel();
 
@@ -53,9 +53,9 @@ public class users extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel5.setBackground(new java.awt.Color(255, 51, 0));
         jLabel5.setFont(new java.awt.Font("Swis721 BT", 1, 36)); // NOI18N
@@ -78,7 +78,7 @@ public class users extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Password", "Phone"
             }
         ));
         userstable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,6 +142,8 @@ public class users extends javax.swing.JFrame {
             }
         });
 
+        userpasstb.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -151,29 +153,28 @@ public class users extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(usereditbt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(usereditbt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                             .addComponent(jLabel9)
-                                            .addGap(106, 106, 106)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(userpasstb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                                .addComponent(usernametb, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(userphone, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))))
-                                .addGap(45, 45, 45))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(useraddbt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
-                                .addGap(188, 188, 188))))
+                                            .addGap(106, 106, 106))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel6)
+                                                .addComponent(useraddbt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel10))
+                                            .addGap(36, 36, 36)))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(usernametb, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(userphone, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                        .addComponent(userpasstb))))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(164, 164, 164)
                         .addComponent(userdeletebt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,9 +206,9 @@ public class users extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(usernametb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(53, 53, 53)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(userpasstb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userpasstb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -489,7 +490,7 @@ int key =0;
     private javax.swing.JButton userdeletebt;
     private javax.swing.JButton usereditbt;
     private javax.swing.JTextField usernametb;
-    private javax.swing.JTextField userpasstb;
+    private javax.swing.JPasswordField userpasstb;
     private javax.swing.JTextField userphone;
     private javax.swing.JTable userstable;
     // End of variables declaration//GEN-END:variables

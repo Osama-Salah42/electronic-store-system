@@ -118,7 +118,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         itemsform.setBackground(new java.awt.Color(255, 51, 0));
         itemsform.setFont(new java.awt.Font("Sitka Small", 0, 36)); // NOI18N
@@ -138,7 +138,7 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel6.setBackground(new java.awt.Color(255, 51, 0));
         jLabel6.setFont(new java.awt.Font("Sitka Small", 0, 36)); // NOI18N
@@ -154,7 +154,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel5.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         usersnum.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         usersnum.setText("Dashboard");
@@ -194,7 +194,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel7.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         itemsnum.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         itemsnum.setText("Dashboard");
@@ -231,7 +231,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel9.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         numberle.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         numberle.setText("Dashboard");
@@ -428,12 +428,7 @@ public class dashboard extends javax.swing.JFrame {
 
     int key =0;
     private void sellstableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sellstableMouseClicked
-//        DefaultTableModel model = (DefaultTableModel)sellstable.getModel();
-//        int myindex = sellstable.getSelectedRow();
-//        key = Integer.valueOf(model.getValueAt(myindex, 0).toString());
-//        usernametb.setText(model.getValueAt(myindex, 1).toString());
-//        userpasstb.setText(model.getValueAt(myindex, 2).toString());
-//        userphone.setText(model.getValueAt(myindex, 3).toString());
+
     }//GEN-LAST:event_sellstableMouseClicked
 
     public static void main(String args[]) {

@@ -78,13 +78,13 @@ public class selling extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel3.setBackground(new java.awt.Color(255, 51, 0));
         jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 36)); // NOI18N
         jLabel3.setText("EStore");
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel6.setBackground(new java.awt.Color(255, 102, 102));
         jLabel6.setFont(new java.awt.Font("Sitka Small", 0, 36)); // NOI18N
@@ -92,7 +92,7 @@ public class selling extends javax.swing.JFrame {
 
         Unamelb.setBackground(new java.awt.Color(255, 102, 102));
         Unamelb.setFont(new java.awt.Font("Sitka Small", 0, 36)); // NOI18N
-        Unamelb.setText("Uname");
+        Unamelb.setText("viewdata");
 
         itemstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,7 +102,7 @@ public class selling extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Quntity", "Price"
             }
         ));
         itemstable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,7 +225,7 @@ public class selling extends javax.swing.JFrame {
                             .addComponent(itquntb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(itpricetb)
                             .addComponent(sellid))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel13)
@@ -241,7 +241,7 @@ public class selling extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE))
                         .addGap(44, 44, 44))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(640, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel14)

@@ -65,9 +65,9 @@ public class items extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        userform.setBackground(new java.awt.Color(255, 51, 0));
+        userform.setBackground(new java.awt.Color(153, 153, 153));
         userform.setFont(new java.awt.Font("Sitka Small", 0, 36)); // NOI18N
         userform.setText("User");
         userform.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,7 +89,7 @@ public class items extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 36)); // NOI18N
         jLabel3.setText("EStore");
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel5.setBackground(new java.awt.Color(255, 51, 0));
         jLabel5.setFont(new java.awt.Font("Swis721 Ex BT", 0, 36)); // NOI18N
@@ -117,17 +117,17 @@ public class items extends javax.swing.JFrame {
         jLabel10.setText("Photo");
 
         itcatcb.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        itcatcb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Micro-Controller", "Motors", "Devices" }));
+        itcatcb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Micro-Controller", "Motors", "Devices", "ICS" }));
 
         itemstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Quntity", "Price", "Category", "Photo"
             }
         ));
         itemstable.addMouseListener(new java.awt.event.MouseAdapter() {
